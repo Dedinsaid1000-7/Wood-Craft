@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalTitle.innerText = 'Товар добавлен!';
         modalText.innerText = `Вы успешно добавили "${productName}" в корзину покупок.`;
         
-        // Меняем display с 'none' на 'flex' (так как у нас там flex-выравнивание)
+    
         modalContainer.style.display = 'flex'; 
     }
 
@@ -86,7 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Кресло-качалка "Уют"', price: 15000, category: 'living-room' },
         { name: 'Кухонный гарнитур "Модерн"', price: 85000, category: 'kitchen' },
         { name: 'Тумба под ТВ "Слейт"', price: 11500, category: 'living-room' },
-        { name: 'Прикроватная тумбочка', price: 6000, category: 'bedroom' }
+        { name: 'Прикроватная тумбочка', price: 6000, category: 'bedroom' },
+        { name: 'Коврик для намаза', price: 666_000, category: 'bedroom' }
     ];
 
     const productInstances = [];
@@ -118,6 +119,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     categorySelect.addEventListener('change', applyFilters);
     priceInput.addEventListener('input', applyFilters);
+
+        // ==========================================
+    // ПЕРЕКЛЮЧЕНИЕ ТЕМЫ (СВЕТЛАЯ / ТЕМНАЯ)
+    // ==========================================
+    const themeToggleBtn = document.getElementById('theme-toggle');
+
+    themeToggleBtn.addEventListener('click', () => {
+        // Метод toggle автоматически добавляет класс, если его нет, и удаляет, если он есть
+        document.body.classList.toggle('dark-theme');
+
+        // Выведем лог в консоль для преподавателя
+        const currentTheme = document.body.classList.contains('dark-theme') ? 'Тёмная' : 'Светлая';
+        console.log(`Тема оформления изменена на: ${currentTheme}`);
+    });
+
 });
 
 
